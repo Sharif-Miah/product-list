@@ -9,8 +9,8 @@ const FavoritProvider = ({ children }) => {
     setFavorits([...favorits, product]);
   };
 
-  const removeFromCart = (id) => {
-    const filterd = favorits.filter((item) => item.id !== id);
+  const removeFromCart = (productId) => {
+    const filterd = favorits.filter((item) => item.id !== productId);
     setFavorits(filterd);
   };
 

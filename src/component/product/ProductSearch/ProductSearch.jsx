@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { FavoritContext } from "../../../context";
+
 const ProductSearch = () => {
+  const { favorits } = useContext(FavoritContext);
+
   return (
     <div className="mt-10">
       <div className="flex justify-between relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -165,7 +170,7 @@ const ProductSearch = () => {
                 />
               </svg>
               <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                0
+                {favorits.length}
               </span>
               <span className="sr-only">items in cart, view bag</span>
             </a>

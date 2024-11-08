@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from "react";
-import { FavoritContext, ProductContext } from "../../../context";
+import { FavoritContext } from "../../../context";
 
 const SingleProduct = ({ product }) => {
   const { title, description, image, price, category } = product;
@@ -9,24 +10,22 @@ const SingleProduct = ({ product }) => {
 
   const [isFavorit, toggleFavorit] = useState(false);
   const { favorits, addToCart, removeFromCart } = useContext(FavoritContext);
-  console.log(favorits);
 
-  const { productData } = useContext(ProductContext);
+  // const { productData } = useContext(ProductContext);
 
   useEffect(() => {
-    const found = favorits.find((item) => item === productData);
+    const found = favorits.find((fav) => fav.id === product.id);
     toggleFavorit(found);
   }, []);
 
   const handleClick = () => {
-    const found = favorits.find((item) => item === productData);
+    const found = favorits.find((fav) => fav.id === product.id);
 
     if (!found) {
       addToCart(product);
     } else {
-      removeFromCart(productData.id);
+      removeFromCart(product.id);
     }
-
     toggleFavorit(!isFavorit);
   };
 
@@ -54,7 +53,9 @@ const SingleProduct = ({ product }) => {
 
       <button
         onClick={handleClick}
-        className="cursor-pointer w-full rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 ring-1   hover:ring-1 ring-slate-700/10 hover:bg-slate-50 hover:text-slate-900 items-center text-center mb-3 mx-3 flex-1"
+        className={`cursor-pointer w-full rounded-md ${
+          isFavorit ? `bg-slate-700 text-white` : `bg-white text-slate-700`
+        }  text-[0.8125rem] font-medium leading-5  ring-1   hover:ring-1 ring-slate-700/10   items-center text-center mb-3 mx-3 flex-1`}
       >
         <div className="flex px-3 py-2 justify-center">
           <svg
