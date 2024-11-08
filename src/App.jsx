@@ -1,10 +1,13 @@
 import "./App.css";
 import Page from "./page/Page";
+import ProductProvider from "./provider/ProductProvider";
 
 function App() {
   return (
     <>
-      <Page />
+      <ProductProvider>
+        <Page />
+      </ProductProvider>
     </>
   );
 }

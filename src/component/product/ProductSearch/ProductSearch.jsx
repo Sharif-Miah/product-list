@@ -40,7 +40,6 @@ const ProductSearch = () => {
                   className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
                   role="menuitem"
                   tabIndex="-1"
-                  onClick="toggleDropdown()"
                   id="menu-item-0"
                 >
                   Low to High
@@ -50,7 +49,6 @@ const ProductSearch = () => {
                   className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
                   role="menuitem"
                   tabIndex="-1"
-                  onClick="toggleDropdown()"
                   id="menu-item-0"
                 >
                   High to Low
