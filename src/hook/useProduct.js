@@ -28,7 +28,9 @@ const useProduct = () => {
         message: "Product data fetching...",
       });
 
-      const response = await fetch(`https://fakestoreapi.com/products?limit=8`);
+      const response = await fetch(
+        `https://fakestoreapi.com/products?limit=12`
+      );
 
       if (!response.ok) {
         const errorMessage = `This is a error massage ${response.status}`;

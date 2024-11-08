@@ -11,8 +11,6 @@ const SingleProduct = ({ product }) => {
   const [isFavorit, toggleFavorit] = useState(false);
   const { favorits, addToCart, removeFromCart } = useContext(FavoritContext);
 
-  // const { productData } = useContext(ProductContext);
-
   useEffect(() => {
     const found = favorits.find((fav) => fav.id === product.id);
     toggleFavorit(found);

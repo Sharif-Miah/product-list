@@ -1,3 +1,5 @@
+import Logo from "../../assets/logo.svg";
+
 const Header = () => {
   return (
     <header className="relative bg-white">
@@ -33,7 +35,7 @@ const Header = () => {
             <div className="ml-4 flex lg:ml-0">
               <a href="#">
                 <span className="sr-only">Your Company</span>
-                <img className="h-8 w-auto" src="./assets/logo.svg" alt="" />
+                <img className="h-8 w-auto" src={Logo} alt="" />
               </a>
             </div>
 
