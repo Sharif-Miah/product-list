@@ -1,5 +1,6 @@
 import { createContext } from "react";
 
 const ProductContext = createContext("");
+const FavoritContext = createContext("");
 
-export { ProductContext };
+export { FavoritContext, ProductContext };

@@ -1,3 +1,4 @@
+import useLocalStore from "./useLocalStore";
 import useProduct from "./useProduct";
 
-export { useProduct };
+export { useLocalStore, useProduct };
