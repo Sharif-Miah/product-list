@@ -1,4 +1,4 @@
-const FilterProduct = () => {
+const FilterProduct = ({ onModalFilter }) => {
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -8,6 +8,7 @@ const FilterProduct = () => {
           id="filter-button"
           aria-expanded="false"
           aria-haspopup="true"
+          onClick={onModalFilter}
         >
           Filter
           <svg

@@ -1,4 +1,4 @@
-const SortProduct = () => {
+const SortProduct = ({ onModalSort }) => {
   return (
     <div>
       <button
@@ -7,6 +7,7 @@ const SortProduct = () => {
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        onClick={onModalSort}
       >
         Sort
         <svg

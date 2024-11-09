@@ -1,23 +1,22 @@
-import { useContext, useState } from "react";
-import { ProductContext } from "../../../context";
-import useDebaonce from "../../../hook/useDebaonce";
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { productData } = useContext(ProductContext);
+  // const { productData } = useContext(ProductContext);
 
-  const filterd = productData.filter(
-    (item) => item.title === productData.title
-  );
+  // const filterd = productData.filter((item) =>
+  //   item.title.toLowerCase().includes(item)
+  // );
 
-  const doSearch = useDebaonce((term) => {
-    const fetchSearch = filterd(term);
-    setSearchTerm({ ...fetchSearch });
-  }, 500);
+  // const doSearch = useDebaonce((term) => {
+  //   const fetchSearch = filterd(term);
+  //   setSearchTerm({ ...fetchSearch });
+  // }, 500);
 
   const handleSearch = (e) => {
     const value = e.target.value;
-    doSearch(value);
+    // doSearch(value);
   };
 
   return (

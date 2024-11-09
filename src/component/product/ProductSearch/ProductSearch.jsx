@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FavoritContext } from "../../../context";
-import FilterProduct from "./FilterProduct";
+import FilterModal from "../FilterProduct/FilterModal";
+import FilterProduct from "../FilterProduct/FilterProduct";
 import Search from "./Search";
 import SortModal from "./SortProduct/SortModal";
 import SortProduct from "./SortProduct/SortProduct";
@@ -8,16 +9,28 @@ import SortProduct from "./SortProduct/SortProduct";
 const ProductSearch = () => {
   const { favorits } = useContext(FavoritContext);
 
+  const [opentModalSort, setOpenModalSort] = useState(false);
+  const [opentModalFilter, setOpenModalFilter] = useState(false);
+
+  const handleModalSort = () => {
+    setOpenModalSort(!opentModalSort);
+  };
+
+  const handleModalFilter = () => {
+    setOpenModalFilter(!opentModalFilter);
+  };
+
   return (
     <div className="mt-10">
       <div className="flex justify-between relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
         <div className="w-full">
           <div className="relative inline-block text-left">
-            <SortProduct />
-            <SortModal />
+            <SortProduct onModalSort={handleModalSort} />
+            {opentModalSort && <SortModal />}
           </div>
 
-          <FilterProduct />
+          <FilterProduct onModalFilter={handleModalFilter} />
+          {opentModalFilter && <FilterModal />}
         </div>
 
         <div className="flex gap-2 items-center">
