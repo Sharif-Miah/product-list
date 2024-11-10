@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
 
 const useDebaonce = (callback, delay) => {
@@ -16,11 +15,10 @@ const useDebaonce = (callback, delay) => {
     if (timeoutIdRef.current) {
       clearTimeout(timeoutIdRef.current);
     }
+    timeoutIdRef.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
   };
-
-  timeoutIdRef.current = setTimeout((args) => {
-    callback(...args);
-  }, delay);
 
   return debounceCallback;
 };
