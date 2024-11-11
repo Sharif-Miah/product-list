@@ -2,14 +2,12 @@ import { useContext } from "react";
 import { ProductContext } from "../../../context";
 import SingleProduct from "./SingleProduct";
 
-const ProductList = ({ productData }) => {
-  const { searchTerm } = useContext(ProductContext);
+const ProductList = () => {
+  const { productData, searchTerm } = useContext(ProductContext);
 
   const filtered = productData.filter((item) => {
     return item.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
-
-  console.log(filtered);
 
   return (
     <div>

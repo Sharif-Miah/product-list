@@ -7,23 +7,14 @@ import ProductList from "./ProductList/ProductList";
 import ProductSearch from "./ProductSearch/ProductSearch";
 
 const Product = () => {
-  const { loading, productData, setSearchTerm } = useContext(ProductContext);
-
-  // const filtered = productData.filter((item) => {
-  //   return item.title.toLowerCase().includes(searchTerm.toLowerCase());
-  // });
-
-  // console.log(filtered);
+  const { loading, setSearchTerm } = useContext(ProductContext);
 
   const doSearch = useDebaonce((term) => {
-    // const fetchSearch = filtered(term);
     setSearchTerm(term);
-    // console.log(term);
   }, 1500);
 
   const handleSearch = (e) => {
     const value = e.target.value;
-    // filtered(value);
     doSearch(value);
   };
 
@@ -37,7 +28,7 @@ const Product = () => {
         </>
       ) : (
         <>
-          <ProductList productData={productData} />
+          <ProductList />
         </>
       )}
     </div>
