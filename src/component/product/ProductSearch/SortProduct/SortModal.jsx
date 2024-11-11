@@ -1,15 +1,8 @@
-import { useContext } from "react";
-import { ProductContext } from "../../../../context";
+const SortModal = ({ sortProducts }) => {
+  // const { sortProducts, sortOrder, filteredProducts } =
+  //   useContext(ProductContext);
 
-const SortModal = () => {
-  const { productData } = useContext(ProductContext);
-
-  const handleLowToHigh = () => {
-    productData.sort((a, b) => a.price - b.price);
-  };
-  const handleHighToLow = () => {
-    productData.sort((a, b) => b.price - a.price);
-  };
+  console.log(sortProducts);
 
   return (
     <div
@@ -25,7 +18,7 @@ const SortModal = () => {
           role="menuitem"
           tabIndex="-1"
           id="menu-item-0"
-          onClick={handleLowToHigh}
+          onClick={() => sortProducts("lowToHigh")}
         >
           Low to High
         </button>
@@ -35,7 +28,7 @@ const SortModal = () => {
           role="menuitem"
           tabIndex="-1"
           id="menu-item-0"
-          onClick={handleHighToLow}
+          onClick={() => sortProducts("highToLow")}
         >
           High to Low
         </button>

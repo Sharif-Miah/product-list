@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FavoritContext } from "../../../context";
+import { FavoritContext, ProductContext } from "../../../context";
 import FilterModal from "../FilterProduct/FilterModal";
 import FilterProduct from "../FilterProduct/FilterProduct";
 import Search from "./Search";
@@ -20,13 +20,16 @@ const ProductSearch = ({ handleSearch }) => {
     setOpenModalFilter(!opentModalFilter);
   };
 
+  const { sortProducts, sortOrder, filteredProducts } =
+    useContext(ProductContext);
+
   return (
     <div className="mt-10">
       <div className="flex justify-between relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
         <div className="w-full">
           <div className="relative inline-block text-left">
             <SortProduct onModalSort={handleModalSort} />
-            {opentModalSort && <SortModal />}
+            {opentModalSort && <SortModal sortProducts={sortProducts} />}
           </div>
 
           <FilterProduct onModalFilter={handleModalFilter} />

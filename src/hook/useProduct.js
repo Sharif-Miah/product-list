@@ -14,6 +14,8 @@ const useProduct = () => {
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState("");
 
   const [loading, setLoading] = useState({
     state: false,
@@ -41,6 +43,7 @@ const useProduct = () => {
 
       const data = await response.json();
       setProductData(data);
+      setFilteredProducts(data);
     } catch (error) {
       setError(error);
     } finally {
@@ -50,6 +53,18 @@ const useProduct = () => {
         message: "",
       });
     }
+  };
+
+  const sortProducts = (order) => {
+    setSortOrder(order);
+    let sortedProducts = [...productData];
+
+    if (order === "lowToHigh") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (order === "highToLow") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+    setFilteredProducts(sortedProducts);
   };
 
   useEffect(() => {
@@ -68,6 +83,9 @@ const useProduct = () => {
     error,
     searchTerm,
     setSearchTerm,
+    sortProducts,
+    sortOrder,
+    filteredProducts,
   };
 };
 
