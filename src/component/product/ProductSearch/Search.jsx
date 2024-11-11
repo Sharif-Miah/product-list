@@ -1,29 +1,4 @@
-import { useContext, useState } from "react";
-import { ProductContext } from "../../../context";
-import useDebaonce from "../../../hook/useDebaonce";
-
-const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const { productData } = useContext(ProductContext);
-
-  const filtered = productData.filter((item) => {
-    return item.title.toLowerCase().includes(searchTerm.toLowerCase());
-  });
-
-  console.log(filtered);
-
-  const doSearch = useDebaonce((term) => {
-    // const fetchSearch = filtered(term);
-    setSearchTerm(term);
-    // console.log(term);
-  }, 1500);
-
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    // filtered(value);
-    doSearch(value);
-  };
-
+const Search = ({ handleSearch }) => {
   return (
     <div className="flex flex-1 items-center px-3.5 py-2 text-gray-400 group hover:ring-1 hover:ring-gray-300 focus-within:!ring-2 ring-inset focus-within:!ring-teal-500 rounded-md">
       <svg

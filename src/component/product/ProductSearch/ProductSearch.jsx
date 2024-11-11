@@ -6,7 +6,7 @@ import Search from "./Search";
 import SortModal from "./SortProduct/SortModal";
 import SortProduct from "./SortProduct/SortProduct";
 
-const ProductSearch = () => {
+const ProductSearch = ({ handleSearch }) => {
   const { favorits } = useContext(FavoritContext);
 
   const [opentModalSort, setOpenModalSort] = useState(false);
@@ -34,7 +34,7 @@ const ProductSearch = () => {
         </div>
 
         <div className="flex gap-2 items-center">
-          <Search />
+          <Search handleSearch={handleSearch} />
 
           <div className="flow-root">
             <a href="#" className="group -m-2 flex items-center p-2">

@@ -13,6 +13,8 @@ const useProduct = () => {
     },
   ]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [loading, setLoading] = useState({
     state: false,
     message: "",
@@ -64,6 +66,8 @@ const useProduct = () => {
     productData,
     loading,
     error,
+    searchTerm,
+    setSearchTerm,
   };
 };
 
